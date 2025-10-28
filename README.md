@@ -1,80 +1,107 @@
-# 🌟 Advanced MERN AI Finance SaaS Platform - Finora
+# AI Finance Tracker (ai-sinance-saas)
 
-> This code, whether in parts or whole, is licensed for commercial use **only with a license**. It is **free for personal use**.
-> 👉 [Click here to obtain license](https://techwithemma.gumroad.com/l/huytmd) and 👉 [here to learn more](https://github.com/TechWithEmmaYT/Advanced-MERN-AI-Financial-SaaS-Platform/blob/main/TECHWITHEMMA-LICENSE.md)
+**AI Finance Tracker** is an intelligent personal finance management SaaS designed to help users track, analyze, and optimize their income and expenses using AI-powered receipt scanning and automated reporting.
 
-## ❤️ Support the Channel
+---
+🚀 Live Site: https://ai-finance-saas-d1df6b.netlify.app/overview
 
-Love this project? Here’s how you can support:
+## Features
 
-* ☕ [Buy Me a Coffee](https://buymeacoffee.com/techwithemmaofficial)
-* 🌟 Star this repo
-* 🎥 [Subscribe on YouTube](https://tinyurl.com/subcribe-to-techwithEmma)
+* **AI Receipt Scanner (OCR):** Upload or capture receipts and let the AI extract transaction details (merchant, amount, date, category).
+* **Daily Expense Management:** Add, edit, and delete daily income and expense entries with categories and descriptions.
+* **Automated Monthly Summary:** Calculates total income, total expenses, net savings each month and highlights top spending categories.
+* **CSV Import / Export:** Import historical transactions from CSV and export data for backup or analysis.
+* **Automated Email Reports:** Sends monthly summary emails with income/expense breakdown and trends to the registered email address.
+* **Profile & Theme Customization:** Update user profile and switch themes (light/dark or custom palettes).
+* **Bulk Management & Sync:** Support for bulk upload, delete, and reconciliation of records.
 
 ---
 
-## 🗝️ Key Features: 👇
+## Tech Stack (suggested)
 
-* 🔐 Authentication (Email + Password with JWT)
-* 🏢 Create & Edit Transactions
-* 📤 Upload & Scan Receipt with AI
-* 📈 Beautiful Advanced Analytics  (MongoDB Aggregate Pipeline)
-* 📊 Expenses Breakdown Pie Chart
-* 📈 Income & Expense Line Chart
-* 📅 Filter by Date Ranges — like Last 30 Days etc.
-* ♻️ Recurring Transactions with Cron Job
-* 📄 Auto-Generated Monthly Report (Emailed to User)
-* 📥 CSV transaction Import
-* 🔍 Filter & Search
-* 📅 Pagination
-* 🗑️ Bulk Delete
-* ➕ Duplicate Transactions
-* 🧑‍💼 Upload Profile Photo (Cloudinary)
-* 🌐 Built with MERN Stack (Node.js, MongoDB, React, TypeScript)
-
-- 💳 [Premium] Upgrades via Stripe — Free Trial, Monthly & Yearly Plans, Easy Plan Switching 👉 [Get It Here](https://techwithemma.gumroad.com/l/gasvc)
-
-
-
-## 🔧 How to Use This Project
-
-### 📺 Step 1: Watch the Complete Full Course on YouTube
-
-> Learn how it all works, including the folder structure, integration, AI config, and more.
-> 👉 [Watch the Course](https://www.youtube.com/watch?v=2S7Y2wewF6I)
-
-
-
-### 💻 Step 2: Run It Locally, Setup Video, Live Preview
-
-> Want to run this project on your own machine? We've got you covered:
-👉 [Setup & Live Preview Link](https://techwithemma.gumroad.com/l/nphhyz)
-
-
-
-### 🚀 [Step 3]: Get the Extended Version — Stripe Payment Video (Free Trial), Full Source Code, Deployment & More.
-
-This is the missing piece — the Stripe payment that powers your SaaS.
-👉 [Get the Extended Version](https://techwithemma.gumroad.com/l/gasvc)
-
-* Free Trial + Monthly & Yearly Plan
-* Switch between Monthly ↔️ Yearly Plan
-* Full Stripe Integration & Webhooks
-* Setup Video (Run locally)
-* Complete Full Source Code
-* Plus Support
----
-
-## 📜 License Information
-
-A paid license is required for commercial use. To obtain a commercial license, please visit 👉 [Here](https://techwithemma.gumroad.com/l/huytmd)
-
-For more details about license, please refer to the [TECHWITHEMMA-LICENSE.md](https://github.com/TechWithEmmaYT/Advanced-MERN-AI-Financial-SaaS-Platform/blob/main/TECHWITHEMMA-LICENSE.md).
+* Frontend: React, React Router, Tailwind CSS
+* Backend: Node.js, Express
+* Database: MongoDB (or PostgreSQL)
+* Authentication: Firebase Auth or JWT-based auth
+* OCR / AI: Tesseract.js (for client-side) or a cloud OCR/AI service (Google Vision API, AWS Textract, Azure Form Recognizer)
+* Email: Nodemailer or transactional email provider (SendGrid, Mailgun)
+* Hosting: Vercel / Netlify (frontend), Heroku / Render / DigitalOcean (backend)
 
 ---
 
-# 📺 Subscribe for More Projects
+## Installation (development)
 
-If you find this helpful, support by subscribing and sharing:
+1. Clone the repository:
 
-🔗 [https://tinyurl.com/subcribe-to-techwithEmma](https://tinyurl.com/subcribe-to-techwithEmma)
+```bash
+git clone https://github.com/alaminjim/ai-sinance-saas.git
+cd ai-sinance-saas
+```
+
+2. Install dependencies (frontend and backend folders if separated):
+
+```bash
+# example for a monorepo
+pnpm install
+# or
+npm install
+```
+
+4. Run the apps locally:
+
+```bash
+# backend
+npm --filter backend dev
+# frontend
+npm --filter frontend dev
+```
+
+---
+
+## Usage Overview
+
+* **Receipt scanning:** Users upload an image or PDF of a receipt -> OCR extracts fields -> user verifies and saves transaction.
+* **Manual entry:** Users add transactions manually with title, amount, date, category, and description.
+* **Monthly reports:** The system aggregates transactions by month and sends an email summary automatically.
+* **CSV workflows:** Import a CSV to bulk-create transactions; export monthly or yearly data as CSV.
+
+---
+
+## API Endpoints (examples)
+
+* `POST /api/auth/register` — Register a new user
+* `POST /api/auth/login` — Authenticate user
+* `GET /api/transactions` — List user transactions (with query filters)
+* `POST /api/transactions` — Create a new transaction
+* `PUT /api/transactions/:id` — Update a transaction
+* `DELETE /api/transactions/:id` — Delete a transaction
+* `POST /api/ocr/scan` — Upload receipt for OCR processing
+* `POST /api/import/csv` — Import transactions via CSV
+
+---
+
+## Development Roadmap
+
+1. Implement core CRUD for transactions + authentication.
+2. Integrate OCR pipeline and build receipt data verification UI.
+3. Build monthly aggregation and scheduled email reports.
+4. Add CSV import/export and reconciliation tools.
+5. Polish UI, add themes, and deploy staging/production.
+
+---
+
+## Contributing
+
+Contributions are welcome. Please open issues for feature requests or bugs and create pull requests for fixes/ improvements. Follow the existing code style and include tests where applicable.
+
+---
+
+## License
+
+This project is open source — add your preferred license (MIT/Apache-2.0) in `LICENSE`.
+
+---
+
+## Contact
+
+Created by Al-Amin Islam — feel free to reach out at `jimalamin7@gmail.com` for questions or collaboration.
